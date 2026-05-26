@@ -41,6 +41,8 @@
 	"dependencies": {
 		"@earendil-works/pi-agent-core": "^0.75.5",
 		"@earendil-works/pi-ai": "^0.75.5",
+		"@earendil-works/pi-classifier": "^0.75.5",
+		"@earendil-works/pi-orchestrator": "^0.75.5",
 		"@earendil-works/pi-tui": "^0.75.5",
 		"@silvia-odwyer/photon-node": "0.3.4",
 		"chalk": "5.6.2",

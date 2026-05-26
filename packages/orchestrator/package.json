@@ -1,0 +1,45 @@
+{
+  "name": "@earendil-works/pi-orchestrator",
+  "version": "0.75.5",
+  "description": "Multi-model agent orchestration with task classification and category-based routing",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "shx rm -rf dist",
+    "build": "tsgo -p tsconfig.build.json",
+    "test": "vitest --run",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@earendil-works/pi-ai": "^0.75.5",
+    "@earendil-works/pi-agent-core": "^0.75.5",
+    "typebox": "1.1.38"
+  },
+  "keywords": [
+    "ai",
+    "orchestrator",
+    "multi-model",
+    "agent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "vitest": "3.2.4"
+  }
+}
