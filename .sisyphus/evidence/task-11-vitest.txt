@@ -1,0 +1,32 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/multi-agent
+
+ ✓ src/registry/__tests__/discover.test.ts (11 tests) 21ms
+ ✓ src/orchestrator/__tests__/planner.test.ts (27 tests) 21ms
+ ✓ src/context/__tests__/strategy.test.ts (20 tests) 16ms
+ ✓ src/config/__tests__/schema.test.ts (13 tests) 27ms
+ ✓ src/config/__tests__/loader.test.ts (11 tests) 43ms
+ ✓ src/registry/__tests__/match.test.ts (12 tests) 10ms
+ ✓ src/context/__tests__/summarizer.test.ts (10 tests) 10ms
+ ✓ src/routing/__tests__/router.test.ts (17 tests) 8ms
+ ✓ src/routing/__tests__/discovery.test.ts (13 tests) 11ms
+ ✓ src/communication/__tests__/protocol.test.ts (14 tests) 10ms
+ ✓ src/classification/__tests__/classifier.test.ts (15 tests) 8ms
+ ✓ src/registry/__tests__/writer.test.ts (9 tests) 10ms
+ ✓ src/context/__tests__/trigger.test.ts (11 tests) 7ms
+ ✓ src/agent/__tests__/factory.test.ts (10 tests) 18ms
+ ✓ src/execution/__tests__/executor.test.ts (14 tests) 21ms
+ ✓ src/agent/__tests__/manager.test.ts (28 tests) 31ms
+ ✓ src/__tests__/smoke.test.ts (3 tests) 1155ms
+   ✓ @earendil-works/pi-multi-agent > exports an object  1150ms
+ ✓ src/communication/__tests__/call-agent.test.ts (6 tests) 13ms
+ ✓ src/classification/__tests__/prompt-builder.test.ts (10 tests) 6ms
+ ✓ src/communication/__tests__/async-call.test.ts (34 tests) 45ms
+ ✓ src/context/__tests__/calculator.test.ts (12 tests) 7ms
+ ✓ src/registry/__tests__/parser.test.ts (12 tests) 12ms
+
+ Test Files  22 passed (22)
+      Tests  312 passed (312)
+   Start at  13:13:30
+   Duration  1.76s (transform 1.88s, setup 0ms, collect 8.35s, tests 1.51s, environment 6ms, prepare 2.70s)
+

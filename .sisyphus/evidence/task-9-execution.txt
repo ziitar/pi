@@ -1,0 +1,34 @@
+Task 9: Agent Execution + Result Types
+=======================================
+
+Created files:
+- packages/multi-agent/src/execution/types.ts
+- packages/multi-agent/src/execution/executor.ts
+- packages/multi-agent/src/execution/__tests__/executor.test.ts
+
+Updated files:
+- packages/multi-agent/src/index.ts (added execution exports)
+
+Test results (14/14 passing):
+✓ executes a prompt and returns completed result
+✓ returns model and category in result
+✓ returns failed result when instance creation fails
+✓ returns failed result when max concurrent limit reached
+✓ collects messages from the agent state
+✓ handles timeout via manager options
+✓ handles external abort signal
+✓ applies systemPrompt override from options
+✓ returns partial status when messages exist before error
+✓ disposes instance after execution
+✓ disposes instance after error
+✓ handles factory that throws during creation
+✓ uses default timeout when not specified
+✓ handles multiple sequential executions
+
+Types defined:
+- ExecutionStatus: "completed" | "partial" | "failed"
+- AgentResult: agentName, category, model, messages, status, duration, error?
+- ExecutionOptions: timeoutMs?, abortSignal?, cwd?, systemPrompt?
+
+API:
+- executeAgent(config, manager, factory, prompt, options?) -> Promise<AgentResult>

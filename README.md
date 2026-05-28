@@ -23,6 +23,7 @@ This is the home of the pi agent harness project including our self extensible c
 * **[@earendil-works/pi-coding-agent](packages/coding-agent)**: Interactive coding agent CLI
 * **[@earendil-works/pi-agent-core](packages/agent)**: Agent runtime with tool calling and state management
 * **[@earendil-works/pi-ai](packages/ai)**: Unified multi-provider LLM API (OpenAI, Anthropic, Google, …)
+* **[@earendil-works/pi-multi-agent](packages/multi-agent)**: Multi-agent orchestration and coordination (opt-in)
 
 To learn more about pi:
 
@@ -52,9 +53,30 @@ I regularly publish my own `pi-mono` work sessions here:
 | **[@earendil-works/pi-ai](packages/ai)** | Unified multi-provider LLM API (OpenAI, Anthropic, Google, etc.) |
 | **[@earendil-works/pi-agent-core](packages/agent)** | Agent runtime with tool calling and state management |
 | **[@earendil-works/pi-coding-agent](packages/coding-agent)** | Interactive coding agent CLI |
+| **[@earendil-works/pi-multi-agent](packages/multi-agent)** | Multi-agent orchestration and coordination (opt-in) |
 | **[@earendil-works/pi-tui](packages/tui)** | Terminal UI library with differential rendering |
 
 For Slack/chat automation and workflows see [earendil-works/pi-chat](https://github.com/earendil-works/pi-chat).
+
+## Multi-Agent (Opt-in)
+
+The multi-agent package enables task routing across specialized agents. To use it:
+
+1. Create agent directories under `~/.pi/agents/` with `config.yaml` files
+2. Create an `agents-index.md` registry file (see [example](packages/multi-agent/agents-index.example.md))
+3. Agents are auto-discovered from the agents directory
+
+Example agent config (`~/.pi/agents/reviewer/config.yaml`):
+```yaml
+name: reviewer
+model: anthropic/claude-sonnet-4-20250514
+categories:
+  - code-review
+  - security
+systemPrompt: ./system-prompt.md
+```
+
+The registry file tracks agent availability and is updated automatically.
 
 ## Contributing
 

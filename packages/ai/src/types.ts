@@ -3,6 +3,13 @@ import type { AssistantMessageEventStream } from "./utils/event-stream.ts";
 
 export type { AssistantMessageEventStream } from "./utils/event-stream.ts";
 
+/**
+ * Thinking/reasoning level for models that support it.
+ * Note: "xhigh" is only supported by selected model families. Use model thinking-level metadata
+ * from @earendil-works/pi-ai to detect support for a concrete model.
+ */
+export type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh";
+
 export type KnownApi =
 	| "openai-completions"
 	| "mistral-conversations"
@@ -59,7 +66,6 @@ export type KnownImagesProvider = "openrouter";
 
 export type ImagesProvider = KnownImagesProvider | string;
 
-export type ThinkingLevel = "minimal" | "low" | "medium" | "high" | "xhigh";
 export type ModelThinkingLevel = "off" | ThinkingLevel;
 export type ThinkingLevelMap = Partial<Record<ModelThinkingLevel, string | null>>;
 

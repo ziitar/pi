@@ -3,6 +3,7 @@ import {
 	type ImageContent,
 	type Model,
 	streamSimple,
+	type ThinkingLevel,
 	type UserMessage,
 } from "@earendil-works/pi-ai";
 import { runAgentLoop } from "../agent-loop.ts";
@@ -14,7 +15,6 @@ import type {
 	AgentTool,
 	QueueMode,
 	StreamFn,
-	ThinkingLevel,
 } from "../types.ts";
 import { collectEntriesForBranchSummary, generateBranchSummary } from "./compaction/branch-summarization.ts";
 import { compact, DEFAULT_COMPACTION_SETTINGS, prepareCompaction } from "./compaction/compaction.ts";

@@ -12,7 +12,6 @@ import type {
 	AgentMessage,
 	AgentToolResult,
 	AgentToolUpdateCallback,
-	ThinkingLevel,
 	ToolExecutionMode,
 } from "@earendil-works/pi-agent-core";
 import type {
@@ -26,6 +25,7 @@ import type {
 	OAuthLoginCallbacks,
 	SimpleStreamOptions,
 	TextContent,
+	ThinkingLevel,
 	ToolResultMessage,
 } from "@earendil-works/pi-ai";
 import type {

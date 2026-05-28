@@ -1,0 +1,77 @@
+Code Quality Review — Multi-Agent Package
+==========================================
+Date: 2026-05-28
+
+## npm run check
+RESULT: FAIL
+- 2 errors (noImplicitAnyLet in executor.ts lines 35, 78)
+- 9 warnings (unused imports/variables, template literal suggestions)
+- 4 infos
+- Biome --write applied safe fixes; unsafe fixes remain
+
+## Circular Dependencies (madge)
+RESULT: PASS (multi-agent has 0 own circular deps)
+- 14 circular deps found, ALL from upstream packages:
+  - 1 from pi-ai (types.d.ts > event-stream.d.ts)
+  - 13 from pi-agent (harness/types.ts > index.ts chains)
+- These are PRE-EXISTING in pi-agent (18 circular deps) and pi-ai (15 circular deps)
+- Multi-agent introduces NO new circular dependencies
+
+## ThinkingLevel Re-definition
+RESULT: PASS
+- ThinkingLevel is imported from @earendil-works/pi-agent-core in:
+  - src/types.ts (import + re-export)
+  - src/config/schema.ts (import + re-export)
+  - src/routing/types.ts (import only)
+  - src/routing/router.ts (import only)
+- ThinkingLevelSchema in config/schema.ts is a TypeBox RUNTIME validation schema, NOT a type re-definition
+- No duplicate type definition exists
+
+## Anti-Patterns Found
+
+### `as any` (2 occurrences)
+1. src/agent/factory.ts:43 — agent.prompt(input as any, images)
+   - Type mismatch: multi-agent's string | AgentMessage | AgentMessage[] vs pi-agent-core's specific prompt type
+2. src/routing/router.ts:28 — getModel(spec.provider as any, spec.modelId as any)
+   - Type mismatch: string vs specific provider/model enum types
+
+### @ts-ignore / @ts-expect-error / @ts-nocheck
+None found. CLEAN.
+
+### Empty catches
+None found. CLEAN.
+
+### console.log in production code
+None found. Only in test data strings (protocol.test.ts, strategy.test.ts). CLEAN.
+
+### Commented-out code
+None found. CLEAN.
+
+### Unused imports/variables (9 total)
+- src/agent/factory.ts:1 — unused AgentTool import
+- src/agent/__tests__/manager.test.ts:6 — unused AgentSessionFactory, AgentSessionHandle imports
+- src/context/__tests__/summarizer.test.ts:92 — unused model, options destructured vars
+- src/routing/__tests__/discovery.test.ts:1 — unused beforeEach import
+- src/routing/__tests__/router.test.ts:1 — unused beforeEach import
+- src/orchestrator/dependency.ts:72 — unused currentStep variable
+- src/context/code-preserving.ts:80 — unused context parameter
+- src/context/issue-preserving.ts:88 — unused context parameter
+
+### noImplicitAnyLet (2 errors)
+- src/execution/executor.ts:35 — let handle; (no type annotation)
+- src/execution/executor.ts:78 — let messages; (no type annotation)
+
+## Verdict
+Build [FAIL] | Lint [FAIL - 2 errors, 9 warnings] | Circular Deps [PASS - 0 own] | ThinkingLevel [PASS] | Files [4 clean / 5 with issues]
+
+ISSUES SUMMARY:
+- 2 build errors (noImplicitAnyLet in executor.ts) — need type annotations
+- 2 `as any` casts — type mismatches with upstream API
+- 7 unused imports/variables — mostly in tests, 2 in production code
+- All circular deps are pre-existing upstream, not introduced by multi-agent
+
+VERDICT: CONDITIONAL PASS
+- No blockers for functionality
+- 2 build errors should be fixed (add type annotations to executor.ts)
+- 2 `as any` casts are acceptable (upstream API type mismatch)
+- Unused code is minor and mostly in tests

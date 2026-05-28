@@ -1,0 +1,37 @@
+Task 10: Communication Protocol + call_agent (Sync)
+====================================================
+
+Files Created:
+- packages/multi-agent/src/communication/protocol.ts
+- packages/multi-agent/src/communication/serializer.ts
+- packages/multi-agent/src/communication/call-agent.ts
+- packages/multi-agent/src/communication/index.ts
+- packages/multi-agent/src/communication/__tests__/protocol.test.ts
+- packages/multi-agent/src/communication/__tests__/call-agent.test.ts
+
+Verification Output:
+$ cd packages/multi-agent && npx vitest --run
+
+ ✓ src/communication/__tests__/protocol.test.ts (14 tests) 12ms
+ ✓ src/communication/__tests__/call-agent.test.ts (6 tests) 10ms
+
+ Test Files  1 failed | 18 passed (19)  [1 pre-existing failure in context/__tests__/strategy.test.ts]
+ Tests  1 failed | 240 passed (241)
+
+Interfaces:
+- AgentRequest: { from, task, mode ("sync"|"async"), stepId?, dependencies?, context? }
+- AgentResponse: { from, stepId?, status ("success"|"error"|"timeout"), result?, artifacts?, error? }
+- AgentArtifact: { type, content, metadata? }
+
+Functions:
+- serializeRequest/deserializeRequest — JSON round-trip for AgentRequest
+- serializeResponse/deserializeResponse — JSON round-trip for AgentResponse
+- encodeRequest/decodeRequest — binary (Uint8Array) round-trip for AgentRequest
+- encodeResponse/decodeResponse — binary (Uint8Array) round-trip for AgentResponse
+- callAgent() — synchronous agent invocation with orchestrator protection
+
+Orchestrator Protection:
+- callAgent() returns error response when config.sessionId === "orchestrator"
+- Error message: "Cannot call the orchestrator agent directly"
+
+Completed: 2025-05-28

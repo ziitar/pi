@@ -1,0 +1,50 @@
+
+> pi-monorepo@0.0.3 check
+> biome check --write --error-on-warnings . && npm run check:pinned-deps && npm run check:ts-imports && npm run check:shrinkwrap && tsgo --noEmit && npm run check:browser-smoke
+
+packages/multi-agent/src/context/code-preserving.ts:20:9 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    18 │ 	const lines = withoutCode.split("\n").filter((l) => l.trim().length > 0);
+    19 │ 	if (lines.length <= 2) return text;
+  > 20 │ 	return lines.slice(0, 2).join("\n") + "\n…";
+       │ 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    21 │ }
+    22 │ 
+  
+  i Unsafe fix: Use a template literal.
+  
+     18  18 │   	const lines = withoutCode.split("\n").filter((l) => l.trim().length > 0);
+     19  19 │   	if (lines.length <= 2) return text;
+     20     │ - → return·lines.slice(0,·2).join("\n")·+·"\n…";
+         20 │ + → return·`${lines.slice(0,·2).join("\n")}\n…`;
+     21  21 │   }
+     22  22 │   
+  
+
+packages/multi-agent/src/context/code-preserving.ts:29:9 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  
+    27 │ 	}
+    28 │ 	const summarized = summarizeProse(text);
+  > 29 │ 	return summarized + "\n\n" + codeBlocks.join("\n\n");
+       │ 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    30 │ }
+    31 │ 
+  
+  i Unsafe fix: Use a template literal.
+  
+     27  27 │   	}
+     28  28 │   	const summarized = summarizeProse(text);
+     29     │ - → return·summarized·+·"\n\n"·+·codeBlocks.join("\n\n");
+         29 │ + → return·`${summarized}\n\n${codeBlocks.join("\n\n")}`;
+     30  30 │   }
+     31  31 │   
+  
+
+packages/multi-agent/src/context/issue-preserving.ts:37:9 lint/style/useTemplate  FIXABLE  ━━━━━━━━━━
+
+  i Template literals are preferred over string concatenation.
+  

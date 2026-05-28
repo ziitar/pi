@@ -1,0 +1,18 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/multi-agent
+
+ ✓ src/registry/__tests__/parser.test.ts (12 tests) 9ms
+ ✓ src/registry/__tests__/match.test.ts (12 tests) 8ms
+ ✓ src/registry/__tests__/discover.test.ts (11 tests) 13ms
+ ✓ src/registry/__tests__/writer.test.ts (9 tests) 9ms
+ ✓ src/config/__tests__/schema.test.ts (13 tests) 25ms
+ ✓ src/config/__tests__/loader.test.ts (11 tests) 28ms
+ ✓ src/__tests__/smoke.test.ts (3 tests) 771ms
+   ✓ @earendil-works/pi-multi-agent > exports an object  766ms
+ ✓ src/agent/__tests__/factory.test.ts (10 tests) 17ms
+
+ Test Files  8 passed (8)
+      Tests  81 passed (81)
+   Start at  12:49:38
+   Duration  1.20s (transform 790ms, setup 0ms, collect 2.03s, tests 879ms, environment 2ms, prepare 819ms)
+

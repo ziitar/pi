@@ -1,0 +1,10 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/multi-agent
+
+ ✓ src/agent/__tests__/factory.test.ts (10 tests) 21ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  12:47:04
+   Duration  1.17s (transform 471ms, setup 0ms, collect 805ms, tests 21ms, environment 0ms, prepare 101ms)
+

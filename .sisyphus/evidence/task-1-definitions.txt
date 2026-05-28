@@ -1,0 +1,15 @@
+=== ThinkingLevel Definitions After Consolidation ===
+packages/agent/src/types.ts:284:export type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh";
+packages/ai/src/types.ts:65:export type ThinkingLevelMap = Partial<Record<ModelThinkingLevel, string | null>>;
+
+=== Imports ===
+packages/ai/src/types.ts:1:import type { ThinkingLevel } from "@earendil-works/pi-agent-core";
+packages/ai/src/types.ts:6:export type { ThinkingLevel };
+packages/ai/src/types.ts:64:export type ModelThinkingLevel = "off" | ThinkingLevel;
+packages/ai/src/types.ts:65:export type ThinkingLevelMap = Partial<Record<ModelThinkingLevel, string | null>>;
+packages/ai/src/types.ts:194:	reasoning?: ThinkingLevel;
+packages/ai/src/types.ts:550:	thinkingLevelMap?: ThinkingLevelMap;
+packages/orchestrator/src/config/schema.ts:1:import type { ThinkingLevel } from "@earendil-works/pi-agent-core";
+packages/orchestrator/src/config/schema.ts:4:export const ThinkingLevelSchema = Type.Union([
+packages/orchestrator/src/config/schema.ts:16:	thinkingLevel: Type.Optional(ThinkingLevelSchema),
+packages/orchestrator/src/config/schema.ts:34:export type { ThinkingLevel };

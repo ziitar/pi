@@ -1,0 +1,173 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/coding-agent
+
+HEAD 现在位于 02f8f45 Second commit
+ ✓ test/suite/regressions/2791-fswatch-error-crash.test.ts (1 test) 593ms
+   ✓ issue #2791 fs.watch error event crashes process > process should survive an error event on the theme FSWatcher  592ms
+HEAD 现在位于 5be73d1 Fourth commit
+ ✓ test/image-processing.test.ts (10 tests) 911ms
+ ✓ test/config.test.ts (14 tests) 983ms
+ ✓ src/modes/interactive/__tests__/classification-router.test.ts (5 tests) 1089ms
+   ✓ classification-router > classifyAndRoute > returns null when no routing available (single-agent, no config)  1083ms
+HEAD 现在位于 c9fb7bd Commit to keep
+HEAD 现在位于 ffc2a9a Rewritten commit
+HEAD 现在位于 7313516 Commit B
+HEAD 现在位于 08b5c4b New commit replacing A and B
+HEAD 现在位于 a4bfcc6 v3
+HEAD 现在位于 b2348d4 Rewrite B
+HEAD 现在位于 84ada10 Second commit
+HEAD 现在位于 84ada10 Second commit
+ ✓ test/package-manager.test.ts (111 tests) 1843ms
+   ✓ DefaultPackageManager > source parsing > should emit progress events on install attempt  1036ms
+   ✓ DefaultPackageManager > source parsing > should recognize github URLs without git: prefix  357ms
+ ✓ test/footer-data-provider.test.ts (8 tests) 2196ms
+   ✓ FooterDataProvider reftable branch detection > does not notify listeners when reftable updates keep the same branch  508ms
+   ✓ FooterDataProvider reftable branch detection > debounces rapid reftable updates into a single async refresh  1161ms
+   ✓ FooterDataProvider reftable branch detection > updates the cached branch when the reftable directory changes  511ms
+HEAD 现在位于 e5d98b2 Second commit
+ ✓ test/git-update.test.ts (13 tests) 2121ms
+ ✓ test/tool-execution-component.test.ts (22 tests) 445ms
+   ✓ ToolExecutionComponent parity > bash renderer does not duplicate final full output truncation details  390ms
+ ✓ test/stdout-cleanliness.test.ts (2 tests) 2975ms
+   ✓ stdout cleanliness in non-interactive modes > keeps stdout empty for --mode json --help while routing startup chatter to stderr  1486ms
+   ✓ stdout cleanliness in non-interactive modes > keeps stdout empty for -p --help while routing startup chatter to stderr  1488ms
+Installing ./packages/local-package...
+stdout | test/package-command-paths.test.ts > package commands > should persist global relative local package paths relative to settings.json
+Installed ./packages/local-package
+
+stdout | test/package-command-paths.test.ts > package commands > should remove local packages using a path with a trailing slash
+Installed /tmp/pi-package-commands-1779945989455-3tvivo45ncw/local-package/
+
+stdout | test/package-command-paths.test.ts > package commands > should remove local packages using a path with a trailing slash
+Removed /tmp/pi-package-commands-1779945989455-3tvivo45ncw/local-package/
+
+Installing /tmp/pi-package-commands-1779945989455-3tvivo45ncw/local-package/...
+Removing /tmp/pi-package-commands-1779945989455-3tvivo45ncw/local-package/...
+ ✓ test/file-mutation-queue.test.ts (7 tests) 368ms
+ ✓ test/block-images.test.ts (8 tests) 314ms
+ ✓ test/extensions-runner.test.ts (27 tests) 446ms
+ ✓ test/resource-loader.test.ts (20 tests) 476ms
+ ✓ test/package-command-paths.test.ts (10 tests) 530ms
+ ✓ test/rpc-prompt-response-semantics.test.ts (3 tests) 543ms
+   ✓ RPC prompt response semantics > emits one success response when prompt is queued during streaming  310ms
+ ✓ test/extensions-discovery.test.ts (28 tests) 378ms
+ ✓ test/suite/agent-session-runtime.test.ts (9 tests) 1145ms
+   ✓ AgentSessionRuntime characterization > updates the runtime session cwd on cross-cwd session replacement  1001ms
+ ✓ test/model-registry.test.ts (64 tests) 320ms
+ ✓ test/auth-storage.test.ts (24 tests) 149ms
+ ✓ test/agent-session-concurrent.test.ts (7 tests) 310ms
+ ✓ test/extensions-input-event.test.ts (8 tests) 260ms
+ ✓ test/tools.test.ts (69 tests) 1623ms
+   ✓ Coding Agent Tools > bash tool > should respect timeout  1013ms
+ ✓ test/rpc-client-process-exit.test.ts (1 test) 124ms
+ ✓ test/sdk-openrouter-attribution.test.ts (6 tests) 180ms
+ ✓ test/agent-session-retry.test.ts (5 tests) 146ms
+ ✓ test/sdk-session-manager.test.ts (3 tests) 115ms
+ ✓ test/suite/agent-session-retry-events.test.ts (14 tests) 176ms
+ ✓ test/suite/agent-session-compaction.test.ts (13 tests) 96ms
+ ✓ test/agent-session-dynamic-provider.test.ts (3 tests) 111ms
+ ✓ test/suite/regressions/2781-skill-collision-precedence.test.ts (4 tests) 110ms
+ ✓ test/agent-session-dynamic-tools.test.ts (3 tests) 108ms
+ ✓ test/suite/regressions/2860-replaced-session-context.test.ts (3 tests) 97ms
+ ✓ test/suite/regressions/3302-find-path-glob.test.ts (4 tests) 100ms
+ ✓ test/suite/regressions/3592-no-builtin-tools-keeps-extension-tools.test.ts (3 tests) 104ms
+ ✓ test/suite/agent-session-prompt.test.ts (11 tests) 103ms
+ ✓ test/skills.test.ts (28 tests) 52ms
+ ✓ test/suite/regressions/1717-2113-agent-session-event-settlement.test.ts (2 tests) 76ms
+ ✓ test/suite/regressions/2835-tools-allowlist-filters-extension-tools.test.ts (2 tests) 85ms
+ ✓ test/interactive-mode-status.test.ts (25 tests) 53ms
+ ✓ test/clipboard-image-bmp-conversion.test.ts (1 test) 64ms
+ ✓ test/edit-tool-no-full-redraw.test.ts (3 tests) 105ms
+ ✓ test/compaction.test.ts (23 tests | 2 skipped) 114ms
+ ✓ test/sdk-skills.test.ts (3 tests) 96ms
+ ✓ test/settings-manager.test.ts (20 tests) 58ms
+ ✓ test/suite/agent-session-queue.test.ts (13 tests) 86ms
+ ✓ test/truncate-to-width.test.ts (6 tests) 45ms
+ ✓ test/suite/agent-session-bash-persistence.test.ts (8 tests) 72ms
+ ✓ test/agent-session-runtime-events.test.ts (4 tests) 97ms
+ ✓ test/test-harness.test.ts (15 tests) 80ms
+ ✓ test/session-manager/file-operations.test.ts (17 tests) 54ms
+ ✓ test/suite/regressions/3303-find-nested-gitignore.test.ts (2 tests) 64ms
+ ✓ test/clipboard-image.test.ts (5 tests) 111ms
+ ✓ test/prompt-templates.test.ts (82 tests) 55ms
+ ✓ test/suite/agent-session-model-extension.test.ts (10 tests) 67ms
+ ✓ test/model-resolver.test.ts (31 tests) 32ms
+ ✓ test/suite/regressions/3217-scoped-model-order.test.ts (2 tests) 60ms
+ ✓ test/oauth-selector.test.ts (6 tests) 48ms
+ ✓ test/agent-session-auto-compaction-queue.test.ts (6 tests) 52ms
+ ✓ test/tree-selector.test.ts (15 tests) 38ms
+ ✓ test/suite/regressions/2753-reload-stale-resource-settings.test.ts (1 test) 44ms
+ ✓ test/session-selector-path-delete.test.ts (7 tests) 39ms
+ ✓ test/assistant-message.test.ts (2 tests) 33ms
+ ✓ test/version-check.test.ts (6 tests) 19ms
+ ✓ test/session-info-modified-timestamp.test.ts (1 test) 24ms
+ ✓ test/suite/regressions/2023-queued-slash-command-followup.test.ts (1 test) 30ms
+ ✓ test/edit-tool-legacy-input.test.ts (8 tests) 24ms
+ ✓ test/agent-session-stats.test.ts (3 tests) 24ms
+ ✓ test/syntax-highlight.test.ts (5 tests) 18ms
+ ✓ test/session-manager/tree-traversal.test.ts (30 tests) 30ms
+ ✓ test/settings-manager-bug.test.ts (4 tests) 28ms
+ ✓ test/frontmatter.test.ts (8 tests) 22ms
+ ✓ test/session-selector-rename.test.ts (3 tests) 30ms
+ ✓ test/plan-mode-utils.test.ts (33 tests) 27ms
+ ✓ test/bash-execution-width.test.ts (2 tests) 28ms
+ ✓ test/clipboard.test.ts (5 tests) 24ms
+ ✓ test/user-message.test.ts (1 test) 26ms
+ ✓ test/session-manager/labels.test.ts (8 tests) 18ms
+ ✓ test/package-manager-ssh.test.ts (8 tests) 15ms
+ ✓ test/session-manager/build-context.test.ts (14 tests) 14ms
+ ✓ test/theme-picker.test.ts (1 test) 18ms
+ ✓ test/ansi-utils.test.ts (5 tests) 18ms
+ ✓ test/args.test.ts (60 tests) 27ms
+ ✓ test/image-resize-callers.test.ts (2 tests) 13ms
+ ✓ test/theme-detection.test.ts (7 tests) 15ms
+ ✓ test/paths.test.ts (19 tests) 14ms
+ ✓ test/path-utils.test.ts (13 tests) 15ms
+ ✓ test/trigger-compact-extension.test.ts (1 test) 8ms
+ ✓ test/suite/regressions/3317-network-connection-lost-retry.test.ts (1 test) 35ms
+ ✓ test/suite/regressions/3982-message-end-cost-override.test.ts (1 test) 23ms
+ ✓ test/suite/regressions/3616-settings-inmemory-reload.test.ts (3 tests) 16ms
+ ✓ test/footer-width.test.ts (4 tests) 15ms
+ ✓ test/session-manager/custom-session-id.test.ts (7 tests) 15ms
+ ✓ test/suite/regressions/4167-thinking-toggle-pending-tool-render.test.ts (2 tests) 17ms
+ ✓ test/rpc-jsonl.test.ts (4 tests) 11ms
+ ✓ test/restore-sandbox-env.test.ts (3 tests) 14ms
+ ✓ test/git-ssh-url.test.ts (9 tests) 11ms
+ ✓ test/session-cwd.test.ts (3 tests) 11ms
+ ✓ test/clipboard-native.test.ts (2 tests) 7ms
+ ✓ test/export-html-xss.test.ts (8 tests) 7ms
+done
+ ✓ test/print-mode.test.ts (3 tests) 17ms
+ ✓ test/session-manager/migration.test.ts (2 tests) 6ms
+ ✓ test/system-prompt.test.ts (8 tests) 9ms
+ ✓ test/keybindings-migration.test.ts (3 tests) 11ms
+ ✓ test/suite/regressions/3686-session-name-event.test.ts (2 tests) 20ms
+ ✓ test/compaction-serialization.test.ts (3 tests) 7ms
+ ✓ test/compaction-summary-reasoning.test.ts (4 tests) 10ms
+ ✓ test/rpc-client-clone.test.ts (1 test) 6ms
+ ✓ test/session-selector-search.test.ts (9 tests) 13ms
+ ✓ test/interactive-mode-suspend.test.ts (3 tests) 20ms
+ ✓ test/interactive-mode-import-command.test.ts (6 tests) 12ms
+ ✓ test/theme-export.test.ts (2 tests) 12ms
+ ✓ test/session-manager/save-entry.test.ts (1 test) 11ms
+ ✓ test/suite/regressions/3688-tree-cancel-compacting.test.ts (1 test) 17ms
+ ✓ test/export-html-whitespace.test.ts (3 tests) 6ms
+ ✓ test/initial-message.test.ts (3 tests) 6ms
+ ✓ test/pi-user-agent.test.ts (1 test) 4ms
+ ✓ test/export-html-skill-block.test.ts (4 tests) 5ms
+ ✓ test/compaction-extensions-example.test.ts (2 tests) 4ms
+ ✓ test/interactive-mode-compaction.test.ts (1 test) 15ms
+ ↓ test/rpc.test.ts (14 tests | 14 skipped)
+ ✓ test/interactive-mode-clone-command.test.ts (2 tests) 7ms
+ ✓ test/interactive-mode-anthropic-warning.test.ts (4 tests) 6ms
+ ↓ test/bash-close-hang-windows.test.ts (2 tests | 2 skipped)
+ ↓ test/agent-session-compaction.test.ts (5 tests | 5 skipped)
+ ↓ test/agent-session-tree-navigation.test.ts (10 tests | 10 skipped)
+ ↓ test/agent-session-branching.test.ts (3 tests | 3 skipped)
+ ↓ test/compaction-extensions.test.ts (8 tests | 8 skipped)
+
+ Test Files  121 passed | 6 skipped (127)
+      Tests  1243 passed | 44 skipped (1287)
+   Start at  13:26:25
+   Duration  18.13s (transform 6.82s, setup 0ms, collect 122.62s, tests 24.30s, environment 33ms, prepare 13.31s)
+

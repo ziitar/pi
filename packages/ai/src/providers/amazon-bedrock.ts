@@ -302,7 +302,7 @@ export const streamSimpleBedrock: StreamFunction<"bedrock-converse-stream", Simp
 	options?: SimpleStreamOptions,
 ): AssistantMessageEventStream => {
 	const base = buildBaseOptions(model, options, undefined);
-	if (!options?.reasoning) {
+	if (!options?.reasoning || options.reasoning === "off") {
 		return streamBedrock(model, context, { ...base, reasoning: undefined } satisfies BedrockOptions);
 	}
 
@@ -878,7 +878,7 @@ function buildAdditionalModelRequestFields(
 	model: Model<"bedrock-converse-stream">,
 	options: BedrockOptions,
 ): Record<string, any> | undefined {
-	if (!options.reasoning || !model.reasoning) {
+	if (!options.reasoning || options.reasoning === "off" || !model.reasoning) {
 		return undefined;
 	}
 
@@ -892,7 +892,7 @@ function buildAdditionalModelRequestFields(
 					output_config: { effort: mapThinkingLevelToEffort(model, options.reasoning) },
 				}
 			: (() => {
-					const defaultBudgets: Record<ThinkingLevel, number> = {
+					const defaultBudgets: Record<Exclude<ThinkingLevel, "off">, number> = {
 						minimal: 1024,
 						low: 2048,
 						medium: 8192,

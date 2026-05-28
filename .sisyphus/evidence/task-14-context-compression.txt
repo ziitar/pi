@@ -1,0 +1,26 @@
+Task 14: Context Token Calculation + Compression Trigger
+=========================================================
+
+## Files Created
+- packages/multi-agent/src/context/types.ts — CompressionContext, CompressionResult, ContextLimitConfig types
+- packages/multi-agent/src/context/calculator.ts — estimateTokens(), estimateMessageTokens(), estimateContextTokens()
+- packages/multi-agent/src/context/trigger.ts — shouldCompress()
+- packages/multi-agent/src/context/__tests__/calculator.test.ts — 12 tests
+- packages/multi-agent/src/context/__tests__/trigger.test.ts — 11 tests
+
+## Files Modified
+- packages/multi-agent/src/index.ts — added exports for context module
+
+## Test Results
+All 23 context tests pass (12 calculator + 11 trigger).
+Full suite: 186 passed, 1 failed (pre-existing routing/discovery.test.ts failure, unrelated).
+
+## Design Decisions
+- Token estimation: ~4 chars per token (matching existing compaction system in pi-agent-core)
+- Compression threshold: 80% of contextLimit (configurable)
+- Context limit: "auto" resolves from model.contextWindow, or explicit number override
+- No real LLM calls, no tokenizer library imports (simple char-based estimation)
+- Uses pi-ai Message type directly for interop
+
+## Verification
+Run: cd packages/multi-agent && npx vitest --run src/context/__tests__/

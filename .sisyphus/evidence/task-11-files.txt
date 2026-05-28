@@ -1,0 +1,11 @@
+-rw-rw-r-- 1 ziitar ziitar 15478 May 28 13:12 /home/ziitar/pi/packages/multi-agent/src/communication/__tests__/async-call.test.ts
+-rw-rw-r-- 1 ziitar ziitar  3369 May 28 13:12 /home/ziitar/pi/packages/multi-agent/src/communication/__tests__/call-agent.test.ts
+-rw-rw-r-- 1 ziitar ziitar  4206 May 28 13:03 /home/ziitar/pi/packages/multi-agent/src/communication/__tests__/protocol.test.ts
+-rw-rw-r-- 1 ziitar ziitar  2954 May 28 13:12 /home/ziitar/pi/packages/multi-agent/src/communication/async-call.ts
+-rw-rw-r-- 1 ziitar ziitar  1816 May 28 13:12 /home/ziitar/pi/packages/multi-agent/src/communication/call-agent.ts
+-rw-rw-r-- 1 ziitar ziitar  3137 May 28 13:08 /home/ziitar/pi/packages/multi-agent/src/communication/completion-tracker.ts
+-rw-rw-r-- 1 ziitar ziitar  1020 May 28 13:12 /home/ziitar/pi/packages/multi-agent/src/communication/index.ts
+-rw-rw-r-- 1 ziitar ziitar  1441 May 28 13:08 /home/ziitar/pi/packages/multi-agent/src/communication/notification.ts
+-rw-rw-r-- 1 ziitar ziitar  3360 May 28 13:13 /home/ziitar/pi/packages/multi-agent/src/communication/polling.ts
+-rw-rw-r-- 1 ziitar ziitar  2136 May 28 13:02 /home/ziitar/pi/packages/multi-agent/src/communication/protocol.ts
+-rw-rw-r-- 1 ziitar ziitar  2216 May 28 13:02 /home/ziitar/pi/packages/multi-agent/src/communication/serializer.ts

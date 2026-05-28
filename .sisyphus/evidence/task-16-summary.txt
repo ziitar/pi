@@ -1,0 +1,62 @@
+Task 16: Wire multi-agent system into coding-agent with auto-detect logic
+
+## Changes Made
+
+### 1. classification-router.ts (NEW FILE)
+- Created seam module at packages/coding-agent/src/modes/interactive/classification-router.ts
+- Auto-detects multi-agent mode when agents-index.md with version marker exists
+- Falls back to single-agent behavior (pi-classifier/pi-orchestrator) when no agents-index.md
+- Exports createClassificationRouter() factory function
+
+### 2. interactive-mode.ts (MODIFIED)
+- Removed imports from @earendil-works/pi-classifier and @earendil-works/pi-orchestrator
+- Added import from ./classification-router.ts
+- Replaced classification block (lines 780-815) with seam module usage
+- Minimal change: only imports and classification routing logic
+
+### 3. coding-agent-session-factory.ts (NEW FILE)
+- Created AgentSessionFactory implementation at packages/coding-agent/src/core/coding-agent-session-factory.ts
+- Wraps createAgentSession() from SDK
+- Implements AgentSessionFactory interface from @earendil-works/pi-multi-agent
+
+### 4. multi-agent/src/index.ts (MODIFIED)
+- Added exports for classifyTask and resolveModelWithFallback
+- Required for classification-router.ts to work
+
+### 5. coding-agent/src/index.ts (MODIFIED)
+- Added export for CodingAgentSessionFactory
+
+### 6. Tests (NEW FILE)
+- Created tests at packages/coding-agent/src/modes/interactive/__tests__/classification-router.test.ts
+- Tests auto-detect logic for agents-index.md
+- Tests fallback to single-agent mode
+
+## Verification
+
+### Tests Passed
+- coding-agent: 121 passed, 6 skipped (127 total)
+- multi-agent: 24 passed (330 tests total)
+- classification-router: 5 passed
+
+### Type Check
+- No TypeScript errors in changed files
+- Pre-existing errors in multi-agent package (not from this task)
+
+## Auto-detect Logic
+
+The classification-router.ts implements the following auto-detect logic:
+
+1. On startup, check ~/.pi/agents/agents-index.md for version marker
+2. If file exists and parseAgentIndex() returns valid AgentPool with version > 0:
+   - Use multi-agent classification/routing
+3. Otherwise:
+   - Fall back to single-agent behavior (pi-classifier/pi-orchestrator)
+
+## Files Changed
+
+- packages/coding-agent/src/modes/interactive/classification-router.ts (NEW)
+- packages/coding-agent/src/modes/interactive/interactive-mode.ts (MODIFIED)
+- packages/coding-agent/src/core/coding-agent-session-factory.ts (NEW)
+- packages/coding-agent/src/index.ts (MODIFIED)
+- packages/multi-agent/src/index.ts (MODIFIED)
+- packages/coding-agent/src/modes/interactive/__tests__/classification-router.test.ts (NEW)

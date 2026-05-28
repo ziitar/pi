@@ -24,6 +24,10 @@ export {
 	InMemoryAuthStorageBackend,
 	type OAuthCredential,
 } from "./core/auth-storage.ts";
+export {
+	CodingAgentSessionFactory,
+	type CodingAgentSessionFactoryOptions,
+} from "./core/coding-agent-session-factory.ts";
 // Compaction
 export {
 	type BranchPreparation,

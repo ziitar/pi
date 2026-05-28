@@ -7,6 +7,7 @@ import type {
 	SimpleStreamOptions,
 	streamSimple,
 	TextContent,
+	ThinkingLevel,
 	Tool,
 	ToolResultMessage,
 } from "@earendil-works/pi-ai";
@@ -275,13 +276,6 @@ export interface AgentLoopConfig extends SimpleStreamOptions {
 	 */
 	afterToolCall?: (context: AfterToolCallContext, signal?: AbortSignal) => Promise<AfterToolCallResult | undefined>;
 }
-
-/**
- * Thinking/reasoning level for models that support it.
- * Note: "xhigh" is only supported by selected model families. Use model thinking-level metadata
- * from @earendil-works/pi-ai to detect support for a concrete model.
- */
-export type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh";
 
 /**
  * Extensible interface for custom app messages.

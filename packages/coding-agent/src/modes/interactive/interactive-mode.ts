@@ -48,8 +48,6 @@ import {
 	visibleWidth,
 } from "@earendil-works/pi-tui";
 import { spawn, spawnSync } from "child_process";
-import { classifyTask } from "@earendil-works/pi-classifier";
-import { loadConfig, resolveModel, resolveClassifierModel } from "@earendil-works/pi-orchestrator";
 import {
 	APP_NAME,
 	APP_TITLE,
@@ -95,6 +93,7 @@ import { getPiUserAgent } from "../../utils/pi-user-agent.ts";
 import { killTrackedDetachedChildren } from "../../utils/shell.ts";
 import { ensureTool } from "../../utils/tools-manager.ts";
 import { checkForNewPiVersion, type LatestPiRelease } from "../../utils/version-check.ts";
+import { createClassificationRouter } from "./classification-router.ts";
 import { ArminComponent } from "./components/armin.ts";
 import { AssistantMessageComponent } from "./components/assistant-message.ts";
 import { BashExecutionComponent } from "./components/bash-execution.ts";
@@ -778,30 +777,17 @@ export class InteractiveMode {
 			}
 		}
 
-		let orchestratorConfig: any = null;
-		try {
-			orchestratorConfig = loadConfig();
-		} catch {
-			// Config may not exist yet
-		}
+		const classificationRouter = createClassificationRouter();
 
 		while (true) {
 			const userInput = await this.getUserInput();
 			try {
-				if (orchestratorConfig && orchestratorConfig.categories && Object.keys(orchestratorConfig.categories).length > 0) {
-					try {
-						const classifierModel = resolveClassifierModel(orchestratorConfig);
-						const classification = await classifyTask(userInput, classifierModel.model, { timeout: 5000 });
-						const resolved = resolveModel(classification.category, orchestratorConfig);
-
-						const modelInfo = `${resolved.model.provider}/${resolved.model.id}`;
-						console.log(`[orchestrator] Routing to ${modelInfo} for ${classification.category} task (${(classification.confidence * 100).toFixed(0)}%)`);
-
-						await this.session.setModel(resolved.model as any);
-					} catch (orchestrationError) {
-						const errorMsg = orchestrationError instanceof Error ? orchestrationError.message : "Unknown error";
-						console.log(`[orchestrator] Failed (${errorMsg}), using default model`);
-					}
+				const routing = await classificationRouter.classifyAndRoute(userInput);
+				if (routing) {
+					console.log(
+						`[router] Routing to ${routing.modelInfo}${routing.agentName ? ` for agent "${routing.agentName}"` : ""}`,
+					);
+					await this.session.setModel(routing.model as any);
 				}
 
 				await this.session.prompt(userInput);

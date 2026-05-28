@@ -1,0 +1,11 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/coding-agent
+
+ ✓ src/modes/interactive/__tests__/classification-router.test.ts (5 tests) 808ms
+   ✓ classification-router > classifyAndRoute > returns null when no routing available (single-agent, no config)  803ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  13:26:15
+   Duration  1.18s (transform 540ms, setup 0ms, collect 54ms, tests 808ms, environment 0ms, prepare 96ms)
+

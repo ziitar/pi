@@ -1,0 +1,10 @@
+
+ RUN  v3.2.4 /home/ziitar/pi/packages/multi-agent
+
+ ✓ src/agent/__tests__/manager.test.ts (28 tests) 20ms
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  12:57:38
+   Duration  1.23s (transform 511ms, setup 0ms, collect 875ms, tests 20ms, environment 0ms, prepare 85ms)
+

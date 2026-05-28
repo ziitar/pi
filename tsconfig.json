@@ -18,10 +18,8 @@
 			"@earendil-works/pi-tui/*": ["./packages/tui/src/*"],
 			"@earendil-works/pi-agent-old": ["./packages/agent-old/src/index.ts"],
 			"@earendil-works/pi-agent-old/*": ["./packages/agent-old/src/*"],
-			"@earendil-works/pi-orchestrator": ["./packages/orchestrator/src/index.ts"],
-			"@earendil-works/pi-orchestrator/*": ["./packages/orchestrator/src/*"],
-			"@earendil-works/pi-classifier": ["./packages/classifier/src/index.ts"],
-			"@earendil-works/pi-classifier/*": ["./packages/classifier/src/*"]
+			"@earendil-works/pi-multi-agent": ["./packages/multi-agent/src/index.ts"],
+			"@earendil-works/pi-multi-agent/*": ["./packages/multi-agent/src/*"]
 		}
 	},
 	"include": ["packages/*/src/**/*", "packages/*/test/**/*", "packages/coding-agent/examples/**/*"],

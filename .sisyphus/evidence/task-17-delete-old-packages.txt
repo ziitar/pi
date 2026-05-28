@@ -1,0 +1,17 @@
+Task 17: Delete old packages/orchestrator and packages/classifier
+
+Verification results:
+- packages/orchestrator/ directory: DELETED
+- packages/classifier/ directory: DELETED
+- coding-agent/package.json deps removed: PASS
+- tsconfig.json path aliases removed: PASS
+- root package.json build script cleaned: PASS
+- classification-router.ts old imports removed: PASS
+- package-lock.json stale entries removed: PASS
+- npm-shrinkwrap.json regenerated: PASS
+- npm install --ignore-scripts: PASS
+- grep pi-orchestrator .ts .json: CLEAN (no matches)
+- grep pi-classifier .ts .json: CLEAN (no matches)
+- classification-router tests: 5/5 passed
+- check:shrinkwrap: up to date
+- check:pinned-deps: PASS
